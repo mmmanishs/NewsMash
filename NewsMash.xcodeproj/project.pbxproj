@@ -97,6 +97,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		069FA69C20433DF000AB2978 /* MainStories */ = {
+			isa = PBXGroup;
+			children = (
+				06EC69372042513B003C9830 /* HeadingScreen */,
+				06EC693E20425C3A003C9830 /* DetailNewsScreen */,
+			);
+			path = MainStories;
+			sourceTree = "<group>";
+		};
 		06EC68FA204236C3003C9830 = {
 			isa = PBXGroup;
 			children = (
@@ -165,8 +174,7 @@
 		06EC6928204237BC003C9830 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				06EC69372042513B003C9830 /* HeadingScreen */,
-				06EC693E20425C3A003C9830 /* DetailNewsScreen */,
+				069FA69C20433DF000AB2978 /* MainStories */,
 			);
 			path = ViewControllers;
 			sourceTree = SOURCE_ROOT;
