@@ -8,6 +8,7 @@ target 'NewsMash' do
   # Pods for NewsMash
   pod 'PromisesSwift', '~> 1.0'
   pod 'Alamofire', '~> 4.6'
+  pod 'SDWebImage', '~> 4.0'
 
   target 'NewsMashTests' do
     inherit! :search_paths
