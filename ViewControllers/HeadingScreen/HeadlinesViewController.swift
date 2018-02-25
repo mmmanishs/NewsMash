@@ -17,6 +17,7 @@ class HeadlinesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Top Stories"
+        loadData()
     }
     
     func loadData() {
@@ -54,6 +55,11 @@ extension HeadlinesViewController: UICollectionViewDelegate, UICollectionViewDat
         }
         cell.setupCell(article: article)
         return cell
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let newsDetailViewController = NewsDetailViewController(nibName: "NewsDetailViewController", bundle: nil)
+        newsDetailViewController.article = articles?[(indexPath.section * itemsPerRow) + indexPath.row]
+        navigationController?.pushViewController(newsDetailViewController, animated: true)
     }
 }
 

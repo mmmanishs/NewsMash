@@ -19,5 +19,6 @@ class HeadingCell: UICollectionViewCell {
             print(urlToImage)
             imageView.sd_setImage(with: URL(string: urlToImage), placeholderImage: UIImage(named: "placeholderImage"))
         }
+        name.text = article.description ?? ""
     }
 }
