@@ -15,4 +15,6 @@ enum Result<T> {
 enum ApiError: Error {
     case badURL
     case apiError
+    case dataReturnedIsNull
+    case malformedData
 }

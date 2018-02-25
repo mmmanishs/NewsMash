@@ -8,7 +8,7 @@
 
 import Foundation
 import Promises
-class DataManager {
+class NewsDataManager {
     func getTopNewStories() -> Promise<[Article]> {
         return RemoteDataController().getArticles()
     }

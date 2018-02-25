@@ -8,29 +8,53 @@
 
 import UIKit
 import Promises
+import AMScrollingNavbar
 class HeadlinesViewController: UIViewController {
     
     @IBOutlet weak var newsCollectionView: UICollectionView!
-    fileprivate let sectionInsets = UIEdgeInsets(top: 20.0, left: 20.0, bottom: 20.0, right: 20.0)
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    fileprivate let sectionInsets = UIEdgeInsets(top: 10.0, left: 20.0, bottom: 10.0, right: 20.0)
+    fileprivate let heightPerCell:CGFloat = 200.0
     fileprivate let itemsPerRow = 2
     var articles: [Article]?
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Top Stories"
         loadData()
+        DispatchQueue.main.async {
+            if let navigationController = self.navigationController as? ScrollingNavigationController {
+                navigationController.followScrollView(self.newsCollectionView, delay: 5.0)
+            }
+            
+        }
     }
-    
+    //    override func viewWillAppear(_ animated: Bool) {
+    //        super.viewWillAppear(animated)
+    //        if let navigationController = navigationController as! ScrollingNavigationController {
+    //            (navigationController as! ScrollingNavigationController).followScrollView(newsCollectionView, delay: 50.0)
+    //        }
+    //    }
     func loadData() {
+        activityIndicator.isHidden = false
         DispatchQueue.global(qos: .background).async {
-            let articlesPromise = DataManager().getTopNewStories()
+            let articlesPromise = NewsDataManager().getTopNewStories()
             articlesPromise.then(){ articles in
+                
                 self.articles = articles
                 print("Articles count= \(articles.count)")
-                self.newsCollectionView.reloadData()
+                DispatchQueue.main.async {
+                    self.newsCollectionView.reloadData()
+                    self.activityIndicator.isHidden = true
+                }
+                
                 }.catch() { error in
                     print("Error : \(error.localizedDescription)")
             }
         }
+    }
+    
+    @IBAction func reloadData(_ sender: Any) {
+        loadData()
     }
 }
 
@@ -57,9 +81,7 @@ extension HeadlinesViewController: UICollectionViewDelegate, UICollectionViewDat
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let newsDetailViewController = NewsDetailViewController(nibName: "NewsDetailViewController", bundle: nil)
-        newsDetailViewController.article = articles?[(indexPath.section * itemsPerRow) + indexPath.row]
-        navigationController?.pushViewController(newsDetailViewController, animated: true)
+        Router.detailNewsScreen(self, articles?[(indexPath.section * itemsPerRow) + indexPath.row]).route()
     }
 }
 
@@ -73,7 +95,7 @@ extension HeadlinesViewController : UICollectionViewDelegateFlowLayout {
         let availableWidth = view.frame.width - paddingSpace
         let widthPerItem = availableWidth / CGFloat(itemsPerRow)
         
-        return CGSize(width: widthPerItem, height: widthPerItem)
+        return CGSize(width: widthPerItem, height: heightPerCell)
     }
     
     //3

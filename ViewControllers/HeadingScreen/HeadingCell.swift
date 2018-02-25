@@ -13,12 +13,21 @@ import SDWebImage
 class HeadingCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var name: UILabel!
+    @IBOutlet weak var source: UILabel!
+    @IBOutlet weak var newSourceLogo: UIImageView!
 
     func setupCell(article: Article) {
         if let urlToImage = article.urlToImage {
-            print(urlToImage)
             imageView.sd_setImage(with: URL(string: urlToImage), placeholderImage: UIImage(named: "placeholderImage"))
         }
-        name.text = article.description ?? ""
+        if let host = URL(string: article.url)?.host {
+            if let url = RequestProvider.getLogoUrl(domainName: host) {
+                newSourceLogo.sd_setImage(with: url, placeholderImage: UIImage(named: "placeholderImage"))
+            }
+        }
+
+        name.text = article.title ?? ""
+        source.text = article.source.name ?? ""
+        
     }
 }

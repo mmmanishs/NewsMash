@@ -18,6 +18,7 @@ class RemoteDataController {
                 let remote = Alamofire.request(topNewsURLRequest)
                 remote.responseData() { response in
                     guard let data = response.result.value else {
+                        reject(ApiError.dataReturnedIsNull)
                         return
                     }
                     let decoder = JSONDecoder()
@@ -41,29 +42,3 @@ class RemoteDataController {
 }
 
 
-enum RequestProvider {
-    case topArticles
-    func getRequest() throws -> URLRequest {
-        switch self {
-        case .topArticles:
-            do {
-                return try getTopArticlesRequest()
-            } catch (let error) {
-                throw error
-            }
-        }
-    }
-    
-    func getTopArticlesRequest() throws -> URLRequest {
-        let endPoint = "https://newsapi.org/v2/top-headlines?country=us&apiKey=bb204bbc7bbc4f04b3700f3eaf983e9a"
-        guard let url = URL(string: endPoint) else {
-            throw ApiError.badURL
-        }
-        do {
-            let request = try URLRequest(url: url, method: .get, headers: nil) //pass the key in headers
-            return request
-        } catch {
-            throw ApiError.badURL
-        }
-    }
-}

@@ -16,6 +16,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+//        RemoteNewsLogoDataController().getLogo(domainName: "www.wsj.com").then() { url in
+//            print("Got url : \(url)")
+//            }.catch() {_ in
+//                print("news logo exception")
+//        }
         return true
     }
 
