@@ -1,0 +1,18 @@
+PODS:
+  - Alamofire (4.6.0)
+  - PromisesObjC (1.0.3)
+  - PromisesSwift (1.0.3):
+    - PromisesObjC (= 1.0.3)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.6)
+  - PromisesSwift (~> 1.0)
+
+SPEC CHECKSUMS:
+  Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
+  PromisesObjC: 9b58f509a9dc23d9a3f01b6aeb2cb9416ade3d41
+  PromisesSwift: fec7ae00af032da2ba3172c8a5468ad9bbf83160
+
+PODFILE CHECKSUM: ac8aa7cc5f540a55fccdc66f8dfe1d38bc0869f1
+
+COCOAPODS: 1.4.0
