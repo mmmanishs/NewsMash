@@ -9,7 +9,7 @@ target 'NewsMash' do
   pod 'PromisesSwift', '~> 1.0'
   pod 'Alamofire', '~> 4.6'
   pod 'SDWebImage', '~> 4.0'
-  pod 'AMScrollingNavbar'
+  pod 'AMScrollingNavbar', '~> 4.2.1'
  
 
 

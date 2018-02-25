@@ -8,6 +8,8 @@
 
 import UIKit
 import WebKit
+import AMScrollingNavbar
+
 class NewsDetailViewController: UIViewController {
 
     @IBOutlet weak var webview: WKWebView!
@@ -19,6 +21,13 @@ class NewsDetailViewController: UIViewController {
             webview.load(request)
         } catch {
             print("Error loading news article")
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if let navigationController = self.navigationController as? ScrollingNavigationController {
+            navigationController.followScrollView(self.webview, delay: 15.0)
         }
     }
 

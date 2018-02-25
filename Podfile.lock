@@ -10,7 +10,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 4.6)
-  - AMScrollingNavbar
+  - AMScrollingNavbar (~> 4.2.1)
   - PromisesSwift (~> 1.0)
   - SDWebImage (~> 4.0)
 
@@ -21,6 +21,6 @@ SPEC CHECKSUMS:
   PromisesSwift: fec7ae00af032da2ba3172c8a5468ad9bbf83160
   SDWebImage: 6da6c8bca115addc4de8613362e1b15f66333825
 
-PODFILE CHECKSUM: 405babf1fd1e6d040a4eafffd757539a0bd2b12b
+PODFILE CHECKSUM: e7066b52d7f89431c5e26275ed53ff723c9daf35
 
 COCOAPODS: 1.4.0

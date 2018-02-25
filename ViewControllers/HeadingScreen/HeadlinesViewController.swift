@@ -21,19 +21,15 @@ class HeadlinesViewController: UIViewController {
         super.viewDidLoad()
         title = "Top Stories"
         loadData()
-        DispatchQueue.main.async {
-            if let navigationController = self.navigationController as? ScrollingNavigationController {
-                navigationController.followScrollView(self.newsCollectionView, delay: 5.0)
-            }
-            
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if let navigationController = self.navigationController as? ScrollingNavigationController {
+            navigationController.followScrollView(self.newsCollectionView, delay: 15.0)
         }
     }
-    //    override func viewWillAppear(_ animated: Bool) {
-    //        super.viewWillAppear(animated)
-    //        if let navigationController = navigationController as! ScrollingNavigationController {
-    //            (navigationController as! ScrollingNavigationController).followScrollView(newsCollectionView, delay: 50.0)
-    //        }
-    //    }
+    
     func loadData() {
         activityIndicator.isHidden = false
         DispatchQueue.global(qos: .background).async {

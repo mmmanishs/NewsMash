@@ -36,7 +36,7 @@
         <!--Item-->
         <scene sceneID="TE8-QX-2hP">
             <objects>
-                <navigationController id="ZJe-Fh-6QB" customClass="ScrollingNavigationController" customModule="NewsMash" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController id="ZJe-Fh-6QB" customClass="ScrollingNavigationController" customModule="AMScrollingNavbar" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="yH9-R7-eDX"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="SwF-j6-pi4">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
