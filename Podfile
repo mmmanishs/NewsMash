@@ -10,6 +10,7 @@ target 'NewsMash' do
   pod 'Alamofire', '~> 4.6'
   pod 'SDWebImage', '~> 4.0'
   pod 'AMScrollingNavbar', '~> 4.2.1'
+  pod 'Firebase/Core'
  
 
 
