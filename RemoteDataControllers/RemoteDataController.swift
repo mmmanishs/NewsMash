@@ -11,11 +11,11 @@ import Promises
 import Alamofire
 
 class RemoteDataController {
-    func getArticles() -> Promise<[Article]> {
+    func getArticles(newsType: NewsType) -> Promise<[Article]> {
         do {
-            let topNewsURLRequest = try RequestProvider.topArticles.getRequest()
+            let newsRequest = try RequestProvider(newsType: newsType).getRequest()
             let promise = Promise<[Article]> { fullfil, reject in
-                let remote = Alamofire.request(topNewsURLRequest)
+                let remote = Alamofire.request(newsRequest)
                 remote.responseData() { response in
                     guard let data = response.result.value else {
                         reject(ApiError.dataReturnedIsNull)
@@ -34,9 +34,7 @@ class RemoteDataController {
             return promise
         }
         catch (let error){
-            return Promise { fulfill, reject in
-                reject(error)
-            }
+            return Promise(error)
         }
     }
 }

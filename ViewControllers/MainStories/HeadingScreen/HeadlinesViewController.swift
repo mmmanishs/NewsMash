@@ -19,7 +19,7 @@ class HeadlinesViewController: UIViewController, ScrollingNavigationControllerDe
     var articles: [Article]?
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Top Stories"
+        title = "ℕℰ𝒲𝓢"
         if let navigationController = self.navigationController as? ScrollingNavigationController {
             navigationController.scrollingNavbarDelegate = self
         }
@@ -43,7 +43,7 @@ class HeadlinesViewController: UIViewController, ScrollingNavigationControllerDe
     func loadData() {
         activityIndicator.isHidden = false
         DispatchQueue.global(qos: .background).async {
-            let articlesPromise = NewsDataManager().getTopNewStories()
+            let articlesPromise = NewsDataManager().getNewsStories()
             articlesPromise.then(){ articles in
                 
                 self.articles = articles

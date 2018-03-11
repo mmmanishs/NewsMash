@@ -9,7 +9,18 @@
 import Foundation
 import Promises
 class NewsDataManager {
-    func getTopNewStories() -> Promise<[Article]> {
-        return RemoteDataController().getArticles()
+    func getNewsStories() -> Promise<[Article]> {
+        return Promise<[Article]> {fulfill, reject in
+            all(
+                RemoteDataController().getArticles(newsType: .topArticles),
+                RemoteDataController().getArticles(newsType: .business),
+                RemoteDataController().getArticles(newsType: .sports),
+                RemoteDataController().getArticles(newsType: .technology)
+                ).then() { severalArticles in
+                    fulfill(severalArticles.flatMap {$0})
+            }
+        }
+
     }
 }
+

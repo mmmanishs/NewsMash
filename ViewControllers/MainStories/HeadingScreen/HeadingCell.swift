@@ -21,7 +21,7 @@ class HeadingCell: UICollectionViewCell {
             imageView.sd_setImage(with: URL(string: urlToImage), placeholderImage: UIImage(named: "placeholderImage"))
         }
         if let host = URL(string: article.url)?.host {
-            if let url = RequestProvider.getLogoUrl(domainName: host) {
+            if let url = try? URL(string: RequestProvider(newsType: .logo(host)).endPoint()) {
                 newSourceLogo.sd_setImage(with: url, placeholderImage: UIImage(named: "placeholderImage"))
             }
         }
