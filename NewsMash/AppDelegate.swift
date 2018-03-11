@@ -22,6 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //            }.catch() {_ in
 //                print("news logo exception")
 //        }
+        ColorScheme.blueWhite.apply()
+
         FirebaseApp.configure()
 
         return true

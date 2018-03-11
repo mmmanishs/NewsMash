@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		06028EBD2055A90B00FC0669 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06028EBC2055A90A00FC0669 /* NavigationBar.swift */; };
 		06EC6907204236C3003C9830 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EC6906204236C3003C9830 /* AppDelegate.swift */; };
 		06EC690C204236C3003C9830 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06EC690A204236C3003C9830 /* Main.storyboard */; };
 		06EC690E204236C3003C9830 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 06EC690D204236C3003C9830 /* Assets.xcassets */; };
@@ -51,6 +52,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		06028EBC2055A90A00FC0669 /* NavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
 		06EC6903204236C3003C9830 /* NewsMash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsMash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		06EC6906204236C3003C9830 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		06EC690B204236C3003C9830 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -100,6 +102,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		06028EBB2055A90A00FC0669 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				06028EBC2055A90A00FC0669 /* NavigationBar.swift */,
+			);
+			path = Extensions;
+			sourceTree = SOURCE_ROOT;
+		};
 		069FA69C20433DF000AB2978 /* MainStories */ = {
 			isa = PBXGroup;
 			children = (
@@ -133,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				06ED8BF8204D28F70086819C /* GoogleService-Info.plist */,
+				06028EBB2055A90A00FC0669 /* Extensions */,
 				06EC695220426D83003C9830 /* Operation */,
 				06EC6945204260A9003C9830 /* Router */,
 				06EC693020423A0B003C9830 /* Models */,
@@ -393,6 +404,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-NewsMash/Pods-NewsMash-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AMScrollingNavbar/AMScrollingNavbar.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework",
 				"${BUILT_PRODUCTS_DIR}/PromisesSwift/Promises.framework",
@@ -403,6 +415,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AMScrollingNavbar.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChameleonFramework.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBLPromises.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Promises.framework",
@@ -498,6 +511,7 @@
 				06EC693C20425157003C9830 /* HeadingCell.swift in Sources */,
 				06EC6907204236C3003C9830 /* AppDelegate.swift in Sources */,
 				06EC693220423A3A003C9830 /* Article.swift in Sources */,
+				06028EBD2055A90B00FC0669 /* NavigationBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

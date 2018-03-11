@@ -11,7 +11,8 @@ target 'NewsMash' do
   pod 'SDWebImage', '~> 4.0'
   pod 'AMScrollingNavbar', '~> 4.2.1'
   pod 'Firebase/Core'
- 
+  pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git'
+
 
 
   target 'NewsMashTests' do
