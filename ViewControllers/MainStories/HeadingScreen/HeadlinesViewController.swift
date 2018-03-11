@@ -9,7 +9,7 @@
 import UIKit
 import Promises
 import AMScrollingNavbar
-class HeadlinesViewController: UIViewController {
+class HeadlinesViewController: UIViewController, ScrollingNavigationControllerDelegate {
     
     @IBOutlet weak var newsCollectionView: UICollectionView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
@@ -20,13 +20,16 @@ class HeadlinesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Top Stories"
+        if let navigationController = self.navigationController as? ScrollingNavigationController {
+            navigationController.scrollingNavbarDelegate = self
+        }
         loadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if let navigationController = self.navigationController as? ScrollingNavigationController {
-            navigationController.followScrollView(newsCollectionView, delay: 50, scrollSpeedFactor: 1.0, collapseDirection: .scrollUp, followers: [newsCollectionView])
+            navigationController.followScrollView(newsCollectionView, delay: 50, scrollSpeedFactor: 1.0, collapseDirection: .scrollUp, followers: [])
         }
     }
     
@@ -113,5 +116,11 @@ extension HeadlinesViewController : UICollectionViewDelegateFlowLayout {
                         layout collectionViewLayout: UICollectionViewLayout,
                         minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return sectionInsets.left
+    }
+}
+
+extension HeadlinesViewController {
+    func scrollingNavigationController(_ controller: AMScrollingNavbar.ScrollingNavigationController, didChangeState state: AMScrollingNavbar.NavigationBarState) {
+        newsCollectionView.frame.size.height = self.view.frame.size.height
     }
 }
