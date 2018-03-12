@@ -15,7 +15,8 @@ class NewsDataManager {
                 RemoteDataController().getArticles(newsType: .topArticles),
                 RemoteDataController().getArticles(newsType: .business),
                 RemoteDataController().getArticles(newsType: .sports),
-                RemoteDataController().getArticles(newsType: .technology)
+                RemoteDataController().getArticles(newsType: .technology),
+                RemoteDataController().getArticles(newsType: .science)
                 ).then() { severalArticles in
                     fulfill(severalArticles.flatMap {$0})
             }

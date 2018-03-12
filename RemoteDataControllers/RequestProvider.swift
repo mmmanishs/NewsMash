@@ -15,6 +15,7 @@ enum NewsType {
     case business
     case sports
     case technology
+    case science
     case logo(String)
 }
 
@@ -36,18 +37,20 @@ class RequestProvider {
             throw ApiError.badURL
         }
     }
-
+    
     
     func endPoint() -> String {
         switch self.newsType {
         case .topArticles:
             return "https://newsapi.org/v2/top-headlines?country=us&apiKey=\(API_KEY)"
         case .business:
-            return "https://newsapi.org/v2/top-headlines?country=us&category=business&pageSize=99&apiKey=\(API_KEY)"
+            return "https://newsapi.org/v2/top-headlines?country=us&category=business&pageSize=99&apiKey=bb204bbc7bbc4f04b3700f3eaf983e9a"
         case .sports:
             return "https://newsapi.org/v2/top-headlines?country=us&category=sports&pageSize=99&apiKey=\(API_KEY)"
         case .technology:
             return "https://newsapi.org/v2/top-headlines?country=us&category=technology&pageSize=99&apiKey=\(API_KEY)"
+        case .science:
+                return "https://newsapi.org/v2/top-headlines?country=us&category=science&pageSize=50&apiKey=\(API_KEY)"
         case .logo(let domainName):
             return "https://logo.clearbit.com/\(domainName)"
         }

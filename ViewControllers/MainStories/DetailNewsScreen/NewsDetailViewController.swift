@@ -25,6 +25,7 @@ class NewsDetailViewController: UIViewController, ScrollingNavigationControllerD
         if let navigationController = self.navigationController as? ScrollingNavigationController {
             navigationController.scrollingNavbarDelegate = self
         }
+        self.title = article?.title
     }
     
     override func viewWillAppear(_ animated: Bool) {
