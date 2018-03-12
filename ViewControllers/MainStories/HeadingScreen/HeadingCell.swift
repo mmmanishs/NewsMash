@@ -27,7 +27,7 @@ class HeadingCell: UICollectionViewCell {
         }
 
         name.text = article.title ?? ""
-        source.text = article.source.name ?? ""
+        //source.text = article.source.name ?? ""
         
     }
 }

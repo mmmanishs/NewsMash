@@ -9,11 +9,6 @@
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="Georgia.ttf">
-            <string>Georgia</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--Item-->
         <scene sceneID="TE8-QX-2hP">
@@ -68,39 +63,29 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tct-ql-MIy">
-                                                    <rect key="frame" x="0.0" y="156" width="250" height="66"/>
+                                                    <rect key="frame" x="0.0" y="184" width="250" height="66"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kjJ-Ax-VM1">
-                                                    <rect key="frame" x="0.0" y="222" width="32" height="28"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kjJ-Ax-VM1">
+                                                    <rect key="frame" x="0.0" y="144" width="24" height="24"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="32" id="R9k-Eq-eWo"/>
-                                                        <constraint firstAttribute="height" constant="28" id="UPr-2C-3Xh"/>
+                                                        <constraint firstAttribute="width" constant="24" id="R9k-Eq-eWo"/>
+                                                        <constraint firstAttribute="height" constant="24" id="UPr-2C-3Xh"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qgv-MV-eLC">
-                                                    <rect key="frame" x="39" y="229" width="211" height="21"/>
-                                                    <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="11"/>
-                                                    <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                             </subviews>
                                         </view>
                                         <constraints>
                                             <constraint firstItem="kjJ-Ax-VM1" firstAttribute="leading" secondItem="Zew-cY-HfZ" secondAttribute="leading" id="5BQ-bA-6ux"/>
-                                            <constraint firstAttribute="bottom" secondItem="qgv-MV-eLC" secondAttribute="bottom" id="86T-lF-tL2"/>
                                             <constraint firstAttribute="trailing" secondItem="mqK-Uj-kjY" secondAttribute="trailing" id="FEB-Qf-PFp"/>
                                             <constraint firstItem="mqK-Uj-kjY" firstAttribute="top" secondItem="Zew-cY-HfZ" secondAttribute="top" id="JjG-ei-R8T"/>
-                                            <constraint firstAttribute="bottom" secondItem="kjJ-Ax-VM1" secondAttribute="bottom" id="Mo2-0p-xcC"/>
-                                            <constraint firstAttribute="trailing" secondItem="qgv-MV-eLC" secondAttribute="trailing" id="bI0-gD-CPB"/>
-                                            <constraint firstAttribute="bottom" secondItem="tct-ql-MIy" secondAttribute="bottom" constant="28" id="cdQ-ZH-u3V"/>
+                                            <constraint firstAttribute="bottom" secondItem="kjJ-Ax-VM1" secondAttribute="bottom" constant="82" id="Mo2-0p-xcC"/>
+                                            <constraint firstAttribute="bottom" secondItem="tct-ql-MIy" secondAttribute="bottom" id="cdQ-ZH-u3V"/>
                                             <constraint firstItem="tct-ql-MIy" firstAttribute="leading" secondItem="Zew-cY-HfZ" secondAttribute="leading" id="jCG-lE-ZKf"/>
                                             <constraint firstAttribute="trailing" secondItem="tct-ql-MIy" secondAttribute="trailing" id="jbC-L8-tUl"/>
-                                            <constraint firstItem="qgv-MV-eLC" firstAttribute="leading" secondItem="kjJ-Ax-VM1" secondAttribute="trailing" constant="7" id="lS5-Wr-LxK"/>
-                                            <constraint firstItem="tct-ql-MIy" firstAttribute="top" secondItem="mqK-Uj-kjY" secondAttribute="bottom" id="s3f-ug-3U0"/>
-                                            <constraint firstItem="qgv-MV-eLC" firstAttribute="top" secondItem="tct-ql-MIy" secondAttribute="bottom" constant="7" id="tl4-Vf-s92"/>
+                                            <constraint firstItem="tct-ql-MIy" firstAttribute="top" secondItem="mqK-Uj-kjY" secondAttribute="bottom" constant="28" id="s3f-ug-3U0"/>
                                             <constraint firstItem="mqK-Uj-kjY" firstAttribute="leading" secondItem="Zew-cY-HfZ" secondAttribute="leading" id="yte-TG-9nb"/>
                                         </constraints>
                                         <size key="customSize" width="250" height="250"/>
@@ -108,7 +93,6 @@
                                             <outlet property="imageView" destination="mqK-Uj-kjY" id="mMp-Cc-jZN"/>
                                             <outlet property="name" destination="tct-ql-MIy" id="jrg-6r-PYZ"/>
                                             <outlet property="newSourceLogo" destination="kjJ-Ax-VM1" id="S4z-pf-NNM"/>
-                                            <outlet property="source" destination="qgv-MV-eLC" id="tNW-E9-FvM"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
