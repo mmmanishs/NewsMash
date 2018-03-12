@@ -10,7 +10,7 @@ import UIKit
 import WebKit
 import AMScrollingNavbar
 
-class NewsDetailViewController: UIViewController {
+class NewsDetailViewController: UIViewController, ScrollingNavigationControllerDelegate {
 
     @IBOutlet weak var webview: WKWebView!
     var article: Article?
@@ -22,12 +22,15 @@ class NewsDetailViewController: UIViewController {
         } catch {
             print("Error loading news article")
         }
+        if let navigationController = self.navigationController as? ScrollingNavigationController {
+            navigationController.scrollingNavbarDelegate = self
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if let navigationController = self.navigationController as? ScrollingNavigationController {
-            navigationController.followScrollView(webview, delay: 50, scrollSpeedFactor: 1.0, collapseDirection: .scrollUp, followers: [webview])
+            navigationController.followScrollView(webview, delay: 50, scrollSpeedFactor: 1.0, collapseDirection: .scrollUp, followers: [])
         }
     }
     
@@ -48,16 +51,11 @@ class NewsDetailViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
+extension NewsDetailViewController {
+    func scrollingNavigationController(_ controller: AMScrollingNavbar.ScrollingNavigationController, didChangeState state: AMScrollingNavbar.NavigationBarState) {
+        webview.frame.size.height = self.view.frame.size.height
+    }
+}
+
