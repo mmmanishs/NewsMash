@@ -101,18 +101,31 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="h96-ob-NBY"/>
                                 </connections>
                             </collectionView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="r97-Zw-RPv">
-                                <rect key="frame" x="177.5" y="323.5" width="20" height="20"/>
-                            </activityIndicatorView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Za3-0b-v65" customClass="NVActivityIndicatorView" customModule="NVActivityIndicatorView">
+                                <rect key="frame" x="162.5" y="308.5" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="X5j-fr-pER"/>
+                                    <constraint firstAttribute="height" constant="50" id="xSk-7t-234"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="typeName" value="circleStrokeSpin"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                        <color key="value" red="0.20000000000000001" green="0.59999999999999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="padding">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="2YN-Qd-ikq" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="4J3-z2-Rcf"/>
+                            <constraint firstItem="Za3-0b-v65" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9Gi-hI-wn3"/>
                             <constraint firstItem="2YN-Qd-ikq" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="G3Y-18-o61"/>
-                            <constraint firstItem="r97-Zw-RPv" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="NPx-HB-CdO"/>
+                            <constraint firstItem="Za3-0b-v65" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Grn-0j-TB8"/>
                             <constraint firstAttribute="trailing" secondItem="2YN-Qd-ikq" secondAttribute="trailing" id="NyU-pr-fAi"/>
                             <constraint firstAttribute="bottom" secondItem="2YN-Qd-ikq" secondAttribute="bottom" id="QTI-Za-0pu"/>
-                            <constraint firstItem="r97-Zw-RPv" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bCI-Sl-CoP"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="9f9-sp-xXx">
@@ -123,7 +136,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="activityIndicator" destination="r97-Zw-RPv" id="ORs-1C-VZj"/>
+                        <outlet property="activityView" destination="Za3-0b-v65" id="mhq-ti-gX8"/>
                         <outlet property="newsCollectionView" destination="2YN-Qd-ikq" id="9Gz-hq-O7h"/>
                     </connections>
                 </viewController>

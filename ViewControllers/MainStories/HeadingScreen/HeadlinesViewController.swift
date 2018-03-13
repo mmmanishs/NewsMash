@@ -9,10 +9,13 @@
 import UIKit
 import Promises
 import AMScrollingNavbar
+import NVActivityIndicatorView
+
 class HeadlinesViewController: UIViewController, ScrollingNavigationControllerDelegate {
     
     @IBOutlet weak var newsCollectionView: UICollectionView!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var activityView: NVActivityIndicatorView!
+
     fileprivate let sectionInsets = UIEdgeInsets(top: 10.0, left: 20.0, bottom: 10.0, right: 20.0)
     fileprivate let heightPerCell:CGFloat = 200.0
     fileprivate let itemsPerRow = 2
@@ -41,7 +44,8 @@ class HeadlinesViewController: UIViewController, ScrollingNavigationControllerDe
     }
     
     func loadData() {
-        activityIndicator.isHidden = false
+        activityView.isHidden = false
+        activityView.startAnimating()
         DispatchQueue.global(qos: .background).async {
             let articlesPromise = NewsDataManager().getNewsStories()
             articlesPromise.then(){ articles in
@@ -50,7 +54,8 @@ class HeadlinesViewController: UIViewController, ScrollingNavigationControllerDe
                 print("Articles count= \(articles.count)")
                 DispatchQueue.main.async {
                     self.newsCollectionView.reloadData()
-                    self.activityIndicator.isHidden = true
+                    self.activityView.isHidden = true
+                    self.activityView.stopAnimating()
                 }
                 
                 }.catch() { error in
