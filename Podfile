@@ -15,7 +15,6 @@ target 'NewsMash' do
   pod 'NVActivityIndicatorView'
 
 
-
   target 'NewsMashTests' do
     inherit! :search_paths
     # Pods for testing

@@ -10,21 +10,22 @@ import Foundation
 import UIKit
 import SDWebImage
 
-class HeadingCell: UICollectionViewCell {
-    @IBOutlet weak var imageView: UIImageView!
+class HeadingCell: UITableViewCell {
+
+    @IBOutlet weak var newsImage: UIImageView!
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var source: UILabel!
     @IBOutlet weak var newSourceLogo: UIImageView!
 
     func setupCell(article: Article) {
         if let urlToImage = article.urlToImage {
-            imageView.sd_setImage(with: URL(string: urlToImage), placeholderImage: UIImage(named: "placeholderImage"))
+            newsImage.sd_setImage(with: URL(string: urlToImage), placeholderImage: UIImage(named: "placeholderImage"))
         }
-        if let host = URL(string: article.url)?.host {
-            if let url = try? URL(string: RequestProvider(newsType: .logo(host)).endPoint()) {
-                newSourceLogo.sd_setImage(with: url, placeholderImage: UIImage(named: "placeholderImage"))
-            }
-        }
+//        if let host = URL(string: article.url)?.host {
+//            if let url = try? URL(string: RequestProvider(newsType: .logo(host)).endPoint()) {
+//                newSourceLogo.sd_setImage(with: url, placeholderImage: UIImage(named: "placeholderImage"))
+//            }
+//        }
 
         name.text = article.title ?? ""
         //source.text = article.source.name ?? ""

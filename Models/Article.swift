@@ -33,3 +33,13 @@ class Source: Codable {
     let id: String?
     let name: String?
 }
+
+class NewsArticles {
+    let newsType: NewsType
+    var articles: [Article]
+    init(newsType: NewsType, articles: [Article]) {
+        self.newsType = newsType
+        self.articles = articles
+    }
+}
+

@@ -9,8 +9,8 @@
 import Foundation
 import Promises
 class NewsDataManager {
-    func getNewsStories() -> Promise<[Article]> {
-        return Promise<[Article]> {fulfill, reject in
+    func getNewsStories() -> Promise<[NewsArticles]> {
+        return Promise<[NewsArticles]> {fulfill, reject in
             all(
                 RemoteDataController().getArticles(newsType: .topArticles),
                 RemoteDataController().getArticles(newsType: .business),
@@ -18,7 +18,12 @@ class NewsDataManager {
                 RemoteDataController().getArticles(newsType: .technology),
                 RemoteDataController().getArticles(newsType: .science)
                 ).then() { severalArticles in
-                    fulfill(severalArticles.flatMap {$0})
+                    let topArticles = NewsArticles(newsType: .topArticles, articles: severalArticles[0])
+                    let business = NewsArticles(newsType: .topArticles, articles: severalArticles[1])
+                    let sports = NewsArticles(newsType: .topArticles, articles: severalArticles[2])
+                    let technology = NewsArticles(newsType: .topArticles, articles: severalArticles[3])
+                    let science = NewsArticles(newsType: .topArticles, articles: severalArticles[4])
+                    fulfill([topArticles, business, sports, technology, science])
             }
         }
 
