@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AMScrollingNavbar
 
 class HomePageViewControllerViewController: UIViewController, HomePageUpdate {
     @IBOutlet weak var tableview: UITableView!
@@ -17,6 +18,9 @@ class HomePageViewControllerViewController: UIViewController, HomePageUpdate {
         title = "N E W S"
         controller.delegate = self
         controller.getData()
+        if let navigationController = self.navigationController as? ScrollingNavigationController {
+            navigationController.scrollingNavbarDelegate = self
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -82,3 +86,30 @@ extension HomePageViewControllerViewController: UITableViewDataSource {
 extension HomePageViewControllerViewController: UITableViewDelegate {
     
 }
+
+extension HomePageViewControllerViewController: ScrollingNavigationControllerDelegate {
+    func scrollingNavigationController(_ controller: AMScrollingNavbar.ScrollingNavigationController, didChangeState state: AMScrollingNavbar.NavigationBarState) {
+        //        tableview.frame = self.view.frame
+        tableview.frame.size.height = self.view.frame.size.height
+        
+    }
+}
+
+extension HomePageViewControllerViewController {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if let navigationController = self.navigationController as? ScrollingNavigationController {
+            navigationController.followScrollView(tableview, delay: 50, scrollSpeedFactor: 1.0, collapseDirection: .scrollUp, followers: [])
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if let navigationController = navigationController as? ScrollingNavigationController {
+            navigationController.showNavbar(animated: true)
+        }
+    }
+}
+
+
+
