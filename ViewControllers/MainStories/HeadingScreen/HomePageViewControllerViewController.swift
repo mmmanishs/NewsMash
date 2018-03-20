@@ -84,7 +84,11 @@ extension HomePageViewControllerViewController: UITableViewDataSource {
 }
 
 extension HomePageViewControllerViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let article = viewModel?.getSection(sectionIndex: indexPath.section)?.news.articles[indexPath.row] {
+            Router.detailNewsScreen(self, article).route()
+        }
+    }
 }
 
 extension HomePageViewControllerViewController: ScrollingNavigationControllerDelegate {

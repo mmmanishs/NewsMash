@@ -38,7 +38,7 @@ class HomePageController {
                 let sports = SectionData(news:NewsArticles(newsType: .sports, articles: severalArticles[2]))
                 let technology = SectionData(news:NewsArticles(newsType: .technology, articles: severalArticles[3]))
                 let science = SectionData(news:NewsArticles(newsType: .science, articles: severalArticles[4]))
-                self.viewModel = HomePageViewModel(sections: [topArticles, business, sports, technology, science])
+                self.viewModel = HomePageViewModel(sections: [ technology, science,business,topArticles, sports])
                 self.delegate?.updateViewController(state: .loadedSuccess, viewModel: self.viewModel)
                 
         }
